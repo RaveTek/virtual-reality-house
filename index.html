@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardboard Minecraft 1.12 House</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        video {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+        .play-button {
+            position: absolute;
+            z-index: 1;
+            background: url('button.png') no-repeat center;
+            background-size: contain;
+            width: 100px; /* Adjust size as needed */
+            height: 100px; /* Adjust size as needed */
+            border: none;
+            cursor: pointer;
+            outline: none;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .play-button.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <video id="video" loop muted>
+            <source src="vr.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button class="play-button" id="playButton"></button>
+    </div>
+
+    <script>
+        const video = document.getElementById('video');
+        const playButton = document.getElementById('playButton');
+
+        playButton.addEventListener('click', () => {
+            video.play();
+            playButton.classList.add('hidden'); // Hide the play button
+        });
+    </script>
+</body>
+</html>
